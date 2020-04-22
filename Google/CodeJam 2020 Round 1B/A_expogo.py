@@ -1,6 +1,6 @@
 '''
 WORKS ONLY FOR FIRST TEST CASE
-the path it finds aren't actually the shortest ones
+but don't know why since it's the optimal solution
 '''
 
 TEST = int(input())
