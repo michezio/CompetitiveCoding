@@ -1,0 +1,89 @@
+B MUMBAI:
+
+GRID: 400 x 400
+BUILDINGS: 50k
+ANTENNAS: 1014
+REWARD: 40M
+DESC: Lot of very small antennas and also ones with
+range 0 to be placed exactly on the buildings. Very few
+big antennas with range between 15 and 30 and only
+4 very big ones of range 72, 86, 90 and 100.
+APPROACH:
+A genetic algorithm could do it given the right amount of time
+and the right parameters. We could split antennas into 3 subsets,
+big, normal and 0 ranges. Bigs can have a genetic algorithm on their
+own to find the best placement. Since they are just 4 the parameters
+can be big and the computation can be very deep with not a great impact.
+0 ranges can be manually placed, while all the rest can use a less deep
+genetic algorithm at the end. 
+
+
+C METROPOLIS:
+
+GRID: 600 x 600
+BUILDINGS: 60k
+ANTENNAS: 60k
+REWARD: 50M
+DESC:
+Equal number of buildings and antennas all with
+range 0 so each antenna has to be placed exaclty on 
+a building. Latency weights are also all 0 so you cannot
+get any negative score for buildings and antenna pairs,
+only speed connection matters.
+Most of the antennas have pretty high
+connection speed but few of them have a very low one
+and they have to be placed to the building with lowest
+speed weights.
+APPROACH:
+In this scenario we can get an optimal solution. The problem
+reduces to an actually very simple one and it is to maximize the sum
+of pairwise multiplications of 2 arrays, in this case array of 
+antennas connection speeds and array of building speed weights.
+To maximize that is simple enough, we just need to sort
+both arrays and pair them accordingly:
+[1, 3, 2, 5] -> [1, 2, 3, 5]
+[3, 3, 6, 1] -> [1, 3, 3, 6] -> 1*1 + 2*3 + 3*3 + 5*6 = MAX
+
+
+D POLYNESIA:
+
+GRID: 1200 x 1200
+BUILDINGS: 40k
+ANTENNAS: 1123
+REWARD: 50M
+DESC: Antenna ranges are pretty small compared to the size of the
+map, 50 max so the biggest ones can cover only 0.08% and there are
+very few too, if all the antennas were the biggest one of range 50
+they all would cover just less then 97% of the map. So precise palcement
+is required since actual coverage is way smaller than that.
+APPROACH: Since antennas are few a genetic algorithm might work, but
+the initial pool must be very big since the coverage is very small.
+Also since there are 0 range antennas too, to ease things a bit
+those have to be left out from the genetic and placed "manually".
+Also antenna speeds varies a lot, there are up to 3 order of magnitude 
+differences between them.
+
+
+E SAN FRANCISCO:
+
+GRID: 2000 x 2000
+BUILDINGS: 200k
+ANTENNAS: 6257
+REWARD: 30M
+DESC: Very similar to polynesia, but with a lot more buildings, and
+a lot bigger map. Antennas are still very limited and ranges are even
+shorter, just a countable amount are big.
+
+
+F TOKYO:
+
+GRID: 6000 x 6000
+BUILDINGS: 350k
+ANTENNAS: 32515
+REWARD: 200M
+DESC: Map is huge, buldings are a lot and antennas are enough
+to make a genetic approach very slow. The situation should be similar
+to San Francisco, antennas are few and short ranged compared to the map,
+we have 0 ranged antennas and speed connections varies from 1 to 4 digits.
+This is a monster. 1 night of computation didn't even get to the first
+generation, it's too big for a genetic algorithm.
