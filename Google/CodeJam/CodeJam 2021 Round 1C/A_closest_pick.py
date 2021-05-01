@@ -19,13 +19,10 @@ def solve(nums, k):
         ranges.append(k-nums[-1])
 
     #print(ranges)
-
-    #ranges = list(map(lambda x: (1+x)//2, ranges))
-    #print(ranges)
+    #print(monoranges)
 
     ranges.sort(reverse=True)
     #print(ranges)
-    #print(monoranges)
 
     res = 0
     if len(ranges) > 0:
