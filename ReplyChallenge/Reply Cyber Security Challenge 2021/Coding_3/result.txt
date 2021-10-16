@@ -1,0 +1,18 @@
+Brute forced all the possible paths with different starting and ending positions, in parallel
+(run pypy3 solve.py #, where # is the index of the starting path). Elapsed 4:20 hours.
+the correct path is the one starting from Paperopoli.
+
+1723-AtHoSmMeMoHiBiElRoGoPaCaDiHoAt-57560
+1723-BiElRoGoPaCaDiHoAtHoSmMeMoHiBi-57560
+1723-CaDiHoAtHoSmMeMoHiBiElRoGoPaCa-57560
+1723-DiHoAtHoSmMeMoHiBiElRoGoPaCaDi-57560
+1723-HiBiElRoGoPaCaDiHoAtHoSmMeMoHi-57560
+1723-ElRoGoPaCaDiHoAtHoSmMeMoHiBiEl-57560
+1723-GoPaCaDiHoAtHoSmMeMoHiBiElRoGo-57560
+1723-HoAtHoSmMeMoHiBiElRoGoPaCaDiHo-57560
+1815-HoPaCaDiSmMeBiElRoGoMoHiHoAtHo-55863
+1874-MeRoGoHoAtHoPaMoHiBiElCaDiSmMe-54665
+1815-MoHiHoAtHoPaCaDiSmMeBiElRoGoMo-55863
+1723-PaCaDiHoAtHoSmMeMoHiBiElRoGoPa-57560  <- Password
+1723-RoGoPaCaDiHoAtHoSmMeMoHiBiElRo-57560
+1874-SmMeRoGoHoAtHoPaMoHiBiElCaDiSm-54665
