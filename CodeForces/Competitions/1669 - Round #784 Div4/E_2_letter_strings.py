@@ -27,13 +27,21 @@ for _ in range(TESTS):
 
     print(counter)
 
+
 '''
-OLD VERSION, TLE
+# SUBMITTED VERSION, TLE
+# MEMO: the TLE usually arises from using the wrong algorithm complexity.
+# Once a TLE happens you can almost certainly say that the current algorithm
+# is at least one order of complexity too high and hence you should focus on
+# optimizing that, instead of the "micro" operations. In this case the bottleneck
+# was the combinatory loop, yielding an O(N^2) complexity. The above version does
+# the same in a O(N) complexity and doesn't produce a TLE.
+# Moreover, once the mechanism for the O(N) algorithm is clear, the code results
+# a lot easier to write, with less "hacky" stuff. Lesson learned!
 
 import itertools
 
-
-def congrue(a, b):
+def check(a, b):
     cond1 = a & 0xF0 == b & 0xF0
     cond2 = a & 0xF == b & 0xF
     return cond1 ^ cond2
@@ -58,5 +66,5 @@ for _ in range(TESTS):
             num = int(bin(16 + ord(s[0]) - ord('a'))[3:] + bin(16 + ord(s[1]) - ord('a'))[3:], 2)
             strings.append(num)
 
-    print(sum(counters[i]*counters[j]*congrue(strings[i], strings[j]) for i, j in itertools.combinations(range(len(strings)), 2)))
+    print(sum(counters[i]*counters[j]*check(strings[i], strings[j]) for i, j in itertools.combinations(range(len(strings)), 2)))
 '''
