@@ -3,27 +3,7 @@
 #include <string>
 #include <stack>
 
-std::vector<std::string> split(const std::string& line, const std::string& separators) {
-    std::size_t pos = 0;
-    std::size_t next = 0;
-    std::vector<std::string> fields;
-    while ( next != std::string::npos ) {
-        /* FIX_ME: works but not very efficiently, it's better to do the opposite:
-           for each char in the remaining string check if it's one of the separators
-           and set next to its position. */
-        next = UINT32_MAX;
-        for (const char sep : separators) {
-            std::size_t found = line.find_first_of(sep, pos);
-            if (found < next) {
-                next = found;
-            }
-        }
-        std::string field = (next == std::string::npos) ? line.substr(pos) : line.substr(pos,next-pos);
-        fields.push_back(field);
-        pos = next + 1;
-    }
-    return fields;
-}
+#include "../common.h"
 
 int main(int argc, char *argv[]) {
 
