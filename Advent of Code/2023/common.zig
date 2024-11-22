@@ -16,11 +16,8 @@ pub fn readFile(filename: []const u8, allocator: std.mem.Allocator) ![]u8 {
     return buff;
 }
 
-pub fn getLines(filename: []const u8, allocator: std.mem.Allocator) !std.ArrayList([]const u8) {
-    const buff = try readFile(filename, allocator);
-    defer allocator.free(buff);
-
-    var lines = std.ArrayList([]const u8).init(allocator);
+pub fn getLines(buff: []const u8, allocator: std.mem.Allocator) !std.ArrayList([]u8) {
+    var lines = std.ArrayList([]u8).init(allocator);
 
     var split_iter = std.mem.splitSequence(u8, buff, "\n");
 

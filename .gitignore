@@ -3,4 +3,4 @@
 **/*.code-workspace
 **/*__*
 __pycache__
-.zig-*
+*zig-*
