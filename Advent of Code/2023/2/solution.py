@@ -21,7 +21,7 @@ class Game:
             return ", ".join(extr)
 
     def __init__(self, line: str) -> None:
-        game_id, line = line.split(": ");
+        game_id, line = line.split(": ")
         self.id = int(game_id.split(" ")[1], 10)
         self.extractions = [ Game.Extraction(x.strip()) for x in line.split(";") ]
 

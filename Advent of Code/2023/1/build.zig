@@ -7,7 +7,7 @@ pub fn build(b: *std.Build) void {
     // COMMON MODULE
 
     const common_module = b.addModule("common", .{
-        .root_source_file = b.path("../common.zig"),
+        .root_source_file = b.path("common.zig"),
     });
 
     // EXECUTABLE
